@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.muhammedesadcomert.shopping.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_HomeFragment_to_ProductDetailFragment"
+            app:destination="@id/ProductDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ProductDetailFragment"
+        android:label="@string/empty_string"
+        android:name="com.muhammedesadcomert.shopping.ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail" />
+</navigation>
