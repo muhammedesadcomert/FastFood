@@ -1,9 +1,12 @@
 buildscript {
     ext {
         nav_version = "2.5.1"
+        hilt_version = '2.42'
+        moshi_version = '1.14.0'
     }
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
     }
 }
 
