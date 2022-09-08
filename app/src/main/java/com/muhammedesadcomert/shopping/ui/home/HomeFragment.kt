@@ -50,9 +50,6 @@ class HomeFragment : Fragment() {
 
         binding.recyclerViewCategories.apply {
             adapter = categoryAdapter
-            layoutManager = LinearLayoutManager(
-                context, LinearLayoutManager.HORIZONTAL, true
-            )
             setHasFixedSize(true)
         }
     }
