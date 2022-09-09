@@ -18,6 +18,7 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModels()
 
+    private lateinit var categoryAdapter: CategoryAdapter
     private lateinit var productAdapter: ProductAdapter
 
     override fun onCreateView(
@@ -31,12 +32,19 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initCategoryAdapter()
+        submitCategories()
         initProductAdapter()
         submitProducts()
     }
 
+    private fun submitCategories() {
+        viewModel.categories.observe(viewLifecycleOwner) { categories ->
+            categoryAdapter.submitList(categories)
+        }
+    }
+
     private fun initCategoryAdapter() {
-        val categoryAdapter = CategoryAdapter { category ->
+        categoryAdapter = CategoryAdapter { category ->
             binding.textViewCategory.text = category.name
             viewModel.getProducts(category.categoryId)
         }
@@ -44,10 +52,6 @@ class HomeFragment : Fragment() {
         binding.recyclerViewCategories.apply {
             adapter = categoryAdapter
             setHasFixedSize(true)
-        }
-
-        viewModel.categories.observe(viewLifecycleOwner) { categories ->
-            categoryAdapter.submitList(categories)
         }
     }
 
