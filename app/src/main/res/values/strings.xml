@@ -8,4 +8,8 @@
     <string name="category_image">Category Image</string>
     <string name="product_image">Product Image</string>
     <string name="economic_menu">Economic Menu</string>
+    <string name="product_title">Product Title</string>
+    <string name="product_description">Product Description</string>
+    <string name="price">123,40 ₺</string>
+    <string name="price_postfix">₺</string>
 </resources>

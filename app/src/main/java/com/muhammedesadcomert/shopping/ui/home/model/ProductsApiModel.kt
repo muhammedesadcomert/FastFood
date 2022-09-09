@@ -2,7 +2,7 @@ package com.muhammedesadcomert.shopping.ui.home.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductApiModel(
+data class ProductsApiModel(
     @SerializedName("success")
     val success: Boolean? = null,
     @SerializedName("data")
