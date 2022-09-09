@@ -43,9 +43,7 @@ class HomeFragment : Fragment() {
 
     private fun initCategoryAdapter() {
         val categoryAdapter = CategoryAdapter(categories) { category ->
-            findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(category.categoryId)
-            )
+            TODO()
         }
 
         binding.recyclerViewCategories.apply {
