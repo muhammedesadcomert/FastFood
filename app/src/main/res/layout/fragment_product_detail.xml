@@ -20,6 +20,17 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
+        <ImageView
+            android:id="@+id/imageView_sold_out"
+            android:layout_width="72dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="@dimen/space_medium"
+            android:contentDescription="@string/sold_out"
+            android:src="@drawable/sold_out"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView_product_title" />
+
         <TextView
             android:id="@+id/textView_product_title"
             android:layout_width="match_parent"

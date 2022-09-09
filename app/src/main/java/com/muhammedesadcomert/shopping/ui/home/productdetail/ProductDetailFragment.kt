@@ -53,6 +53,10 @@ class ProductDetailFragment : Fragment() {
                     textViewProductCampaignPrice.visibility = View.VISIBLE
                 }
 
+                if (product.stock == 0) {
+                    imageViewSoldOut.visibility = View.VISIBLE
+                }
+
                 textViewProductDescription.text =
                     Html.fromHtml(product.description, Html.FROM_HTML_MODE_LEGACY)
                 Glide.with(requireContext()).load(product.featuredImage!!.n)
