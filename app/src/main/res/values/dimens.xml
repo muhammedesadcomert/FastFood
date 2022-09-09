@@ -1,6 +1,7 @@
 <resources>
     <dimen name="space_small">4dp</dimen>
     <dimen name="space_medium">8dp</dimen>
+    <dimen name="space_medium_plus">12dp</dimen>
     <dimen name="space_large">16dp</dimen>
     <dimen name="category_icon_size">72dp</dimen>
     <dimen name="category_icon_corner_radius">36dp</dimen>

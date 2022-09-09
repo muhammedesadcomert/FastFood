@@ -6,4 +6,6 @@
     <string name="categories">Categories</string>
     <string name="category">Category</string>
     <string name="category_image">Category Image</string>
+    <string name="product_image">Product Image</string>
+    <string name="economic_menu">Economic Menu</string>
 </resources>

@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.muhammedesadcomert.shopping.databinding.FragmentHomeBinding
-import com.muhammedesadcomert.shopping.ui.home.model.Category
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,11 +17,11 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: HomeViewModel by viewModels()
-    private lateinit var categories: List<Category>
+
+    private lateinit var productAdapter: ProductAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -30,22 +30,42 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getCategories()
-    }
-
-    private fun getCategories() {
-        viewModel.categories.observe(viewLifecycleOwner) {
-            categories = it
-            initCategoryAdapter()
-        }
+        initCategoryAdapter()
+        initProductAdapter()
+        submitProducts()
     }
 
     private fun initCategoryAdapter() {
-        val categoryAdapter = CategoryAdapter(categories) { category ->
+        val categoryAdapter = CategoryAdapter { category ->
+            binding.textViewCategory.text = category.name
+            viewModel.getProducts(category.categoryId)
         }
 
         binding.recyclerViewCategories.apply {
             adapter = categoryAdapter
+            setHasFixedSize(true)
+        }
+
+        viewModel.categories.observe(viewLifecycleOwner) { categories ->
+            categoryAdapter.submitList(categories)
+        }
+    }
+
+    private fun submitProducts() {
+        viewModel.products.observe(viewLifecycleOwner) { products ->
+            productAdapter.submitList(products)
+        }
+    }
+
+    private fun initProductAdapter() {
+        productAdapter = ProductAdapter { product ->
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(product.id!!)
+            )
+        }
+
+        binding.recyclerViewProducts.apply {
+            adapter = productAdapter
             setHasFixedSize(true)
         }
     }

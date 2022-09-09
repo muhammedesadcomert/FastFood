@@ -18,7 +18,7 @@ class CategoryAdapter(private val onItemClicked: (Category) -> Unit) :
         fun bind(category: Category) {
             with(binding) {
                 categoryName.text = category.name
-                Glide.with(itemView).load(category.icon).into(categoryIcon)
+                Glide.with(itemView).load(category.icon!!).into(categoryIcon)
             }
         }
     }

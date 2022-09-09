@@ -20,9 +20,9 @@ abstract class BaseRepository {
             } catch (e: HttpException) {
                 Resource.Failure(e.message ?: "Something went wrong!")
             } catch (e: IOException) {
-                Resource.Failure("Please check your internet connection")
+                Resource.Failure(e.message ?: "Please check your internet connection")
             } catch (e: Exception) {
-                Resource.Failure("Something went wrong!")
+                Resource.Failure(e.message ?: "Something went wrong!")
             }
         }
     }
