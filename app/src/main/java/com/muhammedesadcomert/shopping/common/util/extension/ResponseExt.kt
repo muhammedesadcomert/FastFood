@@ -1,5 +1,6 @@
-package com.muhammedesadcomert.shopping.common.util
+package com.muhammedesadcomert.shopping.common.util.extension
 
+import com.muhammedesadcomert.shopping.common.util.Resource
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
