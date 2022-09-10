@@ -6,4 +6,5 @@
     <color name="primaryContainer">#ffcdd2</color>
     <color name="onPrimaryContainer">@color/black</color>
     <color name="black">#000000</color>
+    <color name="gray">#7D7D7D</color>
 </resources>
