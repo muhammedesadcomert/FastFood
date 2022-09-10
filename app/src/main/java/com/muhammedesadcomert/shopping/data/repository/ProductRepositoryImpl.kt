@@ -14,8 +14,7 @@ class ProductRepositoryImpl @Inject constructor(
 ) : ProductRepository {
 
     override suspend fun getCategories(): Resource<List<Category>, String> =
-        apiService.getCategories()
-            .safeApiCall(transform = { mapper.toDomainList(it.categories) })
+        apiService.getCategories().safeApiCall(transform = { mapper.toDomainList(it.categories) })
 
 //    override suspend fun getProducts(categoryId: String, sort: String): Resource<ProductsApiModel> =
 //        safeApiCall { apiService.getProducts(categoryId, sort) }
