@@ -1,8 +1,7 @@
 package com.muhammedesadcomert.shopping.data.remote
 
 import com.muhammedesadcomert.shopping.data.model.CategoryDto
-import com.muhammedesadcomert.shopping.ui.home.model.ProductsApiModel
-import com.muhammedesadcomert.shopping.ui.home.productdetail.model.ProductApiModel
+import com.muhammedesadcomert.shopping.data.model.ProductDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,11 +14,11 @@ interface ApiService {
     @GET("products/advanced-filtered")
     suspend fun getProducts(
         @Query("categoryId") categoryId: String,
-        @Query("sort") sort: String
-    ): Response<ProductsApiModel>
+        @Query("sort") sort: String,
+    ): Response<ProductDto>
 
     @GET("products/{productId}")
     suspend fun getSingleProductDetail(
-        @Path("productId") productId: String
-    ): Response<ProductApiModel>
+        @Path("productId") productId: String,
+    ): Response<ProductDto>
 }
