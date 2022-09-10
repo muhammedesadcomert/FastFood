@@ -13,4 +13,5 @@
     <string name="price">123,40 ₺</string>
     <string name="price_postfix">₺</string>
     <string name="sold_out">Sold out</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>
