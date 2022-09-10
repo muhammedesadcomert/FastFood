@@ -4,6 +4,7 @@ import com.muhammedesadcomert.shopping.common.util.Resource
 import com.muhammedesadcomert.shopping.common.util.safeApiCall
 import com.muhammedesadcomert.shopping.data.model.CategoryDtoMapper
 import com.muhammedesadcomert.shopping.data.model.ProductDtoMapper
+import com.muhammedesadcomert.shopping.data.model.ProductListDtoMapper
 import com.muhammedesadcomert.shopping.data.remote.ApiService
 import com.muhammedesadcomert.shopping.domain.model.Category
 import com.muhammedesadcomert.shopping.domain.model.Product
@@ -13,6 +14,7 @@ import javax.inject.Inject
 class ProductRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val categoryDtoMapper: CategoryDtoMapper,
+    private val productListDtoMapper: ProductListDtoMapper,
     private val productDtoMapper: ProductDtoMapper,
 ) : ProductRepository {
 
@@ -24,8 +26,9 @@ class ProductRepositoryImpl @Inject constructor(
         categoryId: String,
         sort: String,
     ): Resource<List<Product>, String> = apiService.getProducts(categoryId, sort)
-        .safeApiCall { productDtoMapper.toDomainList(it.products) }
+        .safeApiCall { productListDtoMapper.toDomainList(it.products) }
 
-//    override suspend fun getSingleProductDetail(productId: String): Resource<ProductApiModel> =
-//        safeApiCall { apiService.getSingleProductDetail(productId) }
+    override suspend fun getSingleProductDetail(productId: String): Resource<Product, String> =
+        apiService.getSingleProductDetail(productId)
+            .safeApiCall { productDtoMapper.mapToDomainModel(it.product!!) }
 }

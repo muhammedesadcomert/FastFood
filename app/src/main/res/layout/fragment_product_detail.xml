@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context=".ui.home.productdetail.ProductDetailFragment">
+            tools:context=".ui.productdetail.ProductDetailFragment">
 
             <ImageView
                 android:id="@+id/imageView_product_image"

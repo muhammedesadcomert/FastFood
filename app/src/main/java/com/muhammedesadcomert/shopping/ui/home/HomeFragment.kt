@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
     private fun initCategoryAdapter() {
         categoryAdapter = CategoryAdapter { category ->
             binding.textViewCategory.text = category.name
-//            viewModel.getProducts(category.categoryId)
+            viewModel.getProducts(category.id!!)
         }
 
         binding.recyclerViewCategories.apply {

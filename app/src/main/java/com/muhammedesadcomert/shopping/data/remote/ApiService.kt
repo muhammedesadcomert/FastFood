@@ -2,6 +2,7 @@ package com.muhammedesadcomert.shopping.data.remote
 
 import com.muhammedesadcomert.shopping.data.model.CategoryDto
 import com.muhammedesadcomert.shopping.data.model.ProductDto
+import com.muhammedesadcomert.shopping.data.model.ProductListDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,7 +16,7 @@ interface ApiService {
     suspend fun getProducts(
         @Query("categoryId") categoryId: String,
         @Query("sort") sort: String,
-    ): Response<ProductDto>
+    ): Response<ProductListDto>
 
     @GET("products/{productId}")
     suspend fun getSingleProductDetail(

@@ -7,6 +7,7 @@ import javax.inject.Inject
 class CategoryDtoMapper @Inject constructor() : DomainMapper<CategoryData, Category> {
     override fun mapToDomainModel(model: CategoryData): Category =
         Category(
+            id = model.categoryId,
             name = model.name,
             icon = model.icon
         )

@@ -9,5 +9,5 @@ interface ProductRepository {
 
     suspend fun getProducts(categoryId: String, sort: String): Resource<List<Product>, String>
 
-//    suspend fun getSingleProductDetail(productId: String): Resource<ProductApiModel>
+    suspend fun getSingleProductDetail(productId: String): Resource<Product, String>
 }

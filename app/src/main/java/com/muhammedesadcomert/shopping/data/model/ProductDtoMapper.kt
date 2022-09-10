@@ -8,12 +8,11 @@ class ProductDtoMapper @Inject constructor() : DomainMapper<ProductData, Product
     override fun mapToDomainModel(model: ProductData): Product =
         Product(
             id = model.id,
-            title = model.title,
             image = model.featuredImage!!.n,
+            title = model.title,
+            description = model.description,
             price = model.price,
-            campaignPrice = model.campaignPrice
+            campaignPrice = model.campaignPrice,
+            stock = model.stock
         )
-
-    fun toDomainList(initial: List<ProductData>): List<Product> =
-        initial.map(this::mapToDomainModel)
 }

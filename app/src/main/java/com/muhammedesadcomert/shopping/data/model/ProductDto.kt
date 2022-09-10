@@ -2,13 +2,20 @@ package com.muhammedesadcomert.shopping.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductDto(
+data class ProductListDto(
     @SerializedName("success")
     val success: Boolean? = null,
     @SerializedName("data")
     val products: List<ProductData> = arrayListOf(),
     @SerializedName("meta")
     val meta: Meta? = null,
+)
+
+data class ProductDto(
+    @SerializedName("success")
+    val success: Boolean? = null,
+    @SerializedName("data")
+    val product: ProductData? = null,
 )
 
 data class ProductData(
