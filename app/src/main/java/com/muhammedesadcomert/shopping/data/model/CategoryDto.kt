@@ -1,15 +1,15 @@
-package com.muhammedesadcomert.shopping.ui.home.model
+package com.muhammedesadcomert.shopping.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class CategoryApiModel(
+data class CategoryDto(
     @SerializedName("success")
     val success: Boolean,
     @SerializedName("data")
-    val categories: List<Category> = arrayListOf()
+    val categories: List<CategoryData> = arrayListOf(),
 )
 
-data class Category(
+data class CategoryData(
     @SerializedName("categoryId")
     val categoryId: String,
     @SerializedName("name")
@@ -27,5 +27,5 @@ data class Category(
     @SerializedName("isActive")
     val isActive: Boolean? = null,
     @SerializedName("subCategories")
-    val subCategories: ArrayList<String> = arrayListOf()
+    val subCategories: ArrayList<String> = arrayListOf(),
 )
