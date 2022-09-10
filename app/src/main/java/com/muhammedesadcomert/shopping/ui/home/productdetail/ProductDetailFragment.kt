@@ -60,6 +60,7 @@ class ProductDetailFragment : Fragment() {
                 textViewProductDescription.text =
                     Html.fromHtml(product.description, Html.FROM_HTML_MODE_LEGACY)
                 Glide.with(requireContext()).load(product.featuredImage!!.n)
+                    .placeholder(R.drawable.blank_screen)
                     .into(imageViewProductImage)
             }
         }

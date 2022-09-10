@@ -23,8 +23,9 @@
                 android:id="@+id/imageView_product_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/product_image"
-                tools:src="@tools:sample/avatars" />
+                tools:src="@drawable/blank_screen" />
 
             <ImageView
                 android:id="@+id/imageView_sold_out"
