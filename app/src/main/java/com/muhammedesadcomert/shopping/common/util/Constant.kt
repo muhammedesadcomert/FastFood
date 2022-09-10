@@ -6,4 +6,5 @@ object Constant {
     const val ALIAS_KEY = "AtS1aPFxlIdVLth6ee2SEETlRxk="
     const val DEFAULT_CATEGORY = "61b1f109a82ec0dd1c56f5ed" // Economic Menu
     const val DEFAULT_SORT = "Price"
+    const val PRICE_SUFFIX = "₺"
 }
