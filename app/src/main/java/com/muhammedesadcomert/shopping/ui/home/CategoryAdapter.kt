@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.muhammedesadcomert.shopping.R
 import com.muhammedesadcomert.shopping.databinding.CategoryItemBinding
 import com.muhammedesadcomert.shopping.domain.model.Category
 import com.muhammedesadcomert.shopping.ui.home.CategoryAdapter.CategoryViewHolder
@@ -18,7 +19,10 @@ class CategoryAdapter(private val onItemClicked: (Category) -> Unit) :
         fun bind(category: Category) {
             with(binding) {
                 categoryName.text = category.name
-                Glide.with(itemView).load(category.icon!!).into(categoryIcon)
+                Glide.with(itemView)
+                    .load(category.icon!!)
+                    .placeholder(R.drawable.blank_category_icon)
+                    .into(categoryIcon)
             }
         }
     }
