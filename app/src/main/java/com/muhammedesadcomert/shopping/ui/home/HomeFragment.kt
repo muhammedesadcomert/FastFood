@@ -35,8 +35,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initCategoryAdapter()
         handleCategories()
-//        initProductAdapter()
-//        submitProducts()
+        initProductAdapter()
+        handleProducts()
     }
 
     private fun handleCategories() {
@@ -71,9 +71,15 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun submitProducts() {
-        viewModel.products.observe(viewLifecycleOwner) { products ->
-            productAdapter.submitList(products)
+    private fun handleProducts() {
+        viewModel.productsUiState.observe(viewLifecycleOwner) { productsUiState ->
+            changeProgressBarState(productsUiState.isLoading)
+
+            if (!productsUiState.errorMessage.isNullOrEmpty()) {
+                Toast.makeText(context, productsUiState.errorMessage, Toast.LENGTH_LONG).show()
+            } else {
+                productAdapter.submitList(productsUiState.products)
+            }
         }
     }
 
