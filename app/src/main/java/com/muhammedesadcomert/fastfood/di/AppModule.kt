@@ -27,8 +27,10 @@ object AppModule {
     @Singleton
     fun provideOkHttpClient(authInterceptor: AuthInterceptor) = OkHttpClient.Builder()
         .addInterceptor(authInterceptor)
-        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)
-            .setLevel(HttpLoggingInterceptor.Level.BODY)).build()
+        .addInterceptor(
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)
+                .setLevel(HttpLoggingInterceptor.Level.BODY)
+        ).build()
 
     @Provides
     @Singleton
@@ -50,7 +52,7 @@ object AppModule {
     fun provideProductRepository(
         apiService: ApiService,
         productListDtoMapper: ProductListDtoMapper,
-        productDtoMapper: ProductDtoMapper,
+        productDtoMapper: ProductDtoMapper
     ): ProductRepository {
         return ProductRepositoryImpl(
             apiService = apiService,
@@ -63,7 +65,7 @@ object AppModule {
     @Provides
     fun provideCategoryRepository(
         apiService: ApiService,
-        categoryDtoMapper: CategoryDtoMapper,
+        categoryDtoMapper: CategoryDtoMapper
     ): CategoryRepository {
         return CategoryRepositoryImpl(
             apiService = apiService,

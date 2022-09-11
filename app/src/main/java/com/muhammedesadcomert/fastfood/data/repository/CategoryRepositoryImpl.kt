@@ -9,7 +9,7 @@ import com.muhammedesadcomert.fastfood.domain.repository.CategoryRepository
 
 class CategoryRepositoryImpl(
     private val apiService: ApiService,
-    private val categoryDtoMapper: CategoryDtoMapper,
+    private val categoryDtoMapper: CategoryDtoMapper
 ) : CategoryRepository {
 
     override suspend fun getCategories(): Resource<List<Category>, String> =
