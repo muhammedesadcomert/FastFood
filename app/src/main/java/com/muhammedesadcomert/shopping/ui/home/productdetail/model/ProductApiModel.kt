@@ -1,13 +1,12 @@
 package com.muhammedesadcomert.shopping.ui.home.productdetail.model
 
-
 import com.google.gson.annotations.SerializedName
 
 data class ProductApiModel(
     @SerializedName("data")
     val product: Data?,
     @SerializedName("success")
-    val success: Boolean?,
+    val success: Boolean?
 )
 
 data class Data(
@@ -68,21 +67,21 @@ data class Data(
     @SerializedName("variationGroups")
     val variationGroups: List<Any?> = arrayListOf(),
     @SerializedName("videos")
-    val videos: List<Any?> = arrayListOf(),
+    val videos: List<Any?> = arrayListOf()
 )
 
 data class FeaturedImage(
     @SerializedName("n")
     val n: String?,
     @SerializedName("t")
-    val t: String?,
+    val t: String?
 )
 
 data class Image(
     @SerializedName("n")
     val n: String?,
     @SerializedName("t")
-    val t: String?,
+    val t: String?
 )
 
 data class Category(
@@ -103,12 +102,12 @@ data class Category(
     @SerializedName("totalProducts")
     val totalProducts: Int?,
     @SerializedName("updateDate")
-    val updateDate: String?,
+    val updateDate: String?
 )
 
 data class Icon(
     @SerializedName("n")
     val n: String?,
     @SerializedName("t")
-    val t: String?,
+    val t: String?
 )

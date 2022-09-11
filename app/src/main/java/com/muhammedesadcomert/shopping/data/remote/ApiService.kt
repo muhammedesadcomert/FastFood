@@ -15,11 +15,11 @@ interface ApiService {
     @GET("products/advanced-filtered")
     suspend fun getProducts(
         @Query("categoryId") categoryId: String,
-        @Query("sort") sort: String,
+        @Query("sort") sort: String
     ): Response<ProductsApiModel>
 
     @GET("products/{productId}")
     suspend fun getSingleProductDetail(
-        @Path("productId") productId: String,
+        @Path("productId") productId: String
     ): Response<ProductApiModel>
 }
