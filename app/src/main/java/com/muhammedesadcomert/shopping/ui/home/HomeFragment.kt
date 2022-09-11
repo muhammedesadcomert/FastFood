@@ -20,7 +20,8 @@ class HomeFragment : Fragment() {
     private lateinit var categories: List<Category>
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -41,7 +42,6 @@ class HomeFragment : Fragment() {
 
     private fun initCategoryAdapter() {
         val categoryAdapter = CategoryAdapter(categories) { category ->
-
         }
 
         binding.recyclerViewCategories.apply {

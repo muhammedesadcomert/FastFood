@@ -30,7 +30,6 @@ class HomeViewModel @Inject constructor(private val productRepository: ProductRe
                     }
                 }
                 is Resource.Failure -> {
-
                 }
                 else -> {}
             }

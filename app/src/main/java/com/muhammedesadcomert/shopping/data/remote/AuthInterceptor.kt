@@ -4,7 +4,6 @@ import com.muhammedesadcomert.shopping.common.util.Constant.ALIAS_KEY
 import com.muhammedesadcomert.shopping.common.util.Constant.API_KEY
 import okhttp3.Interceptor
 import okhttp3.Response
-import javax.inject.Inject
 
 class AuthInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
