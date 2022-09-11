@@ -3,4 +3,7 @@
     <string name="empty_string" />
     <string name="home">Home</string>
     <string name="filter">Filter</string>
+    <string name="categories">Categories</string>
+    <string name="category">Category</string>
+    <string name="category_image">Category Image</string>
 </resources>

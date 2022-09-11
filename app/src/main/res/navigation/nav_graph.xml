@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="com.muhammedesadcomert.shopping.HomeFragment"
+        android:name="com.muhammedesadcomert.shopping.ui.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home">
         <action
@@ -17,6 +17,10 @@
     <fragment
         android:id="@+id/ProductDetailFragment"
         android:label="@string/empty_string"
-        android:name="com.muhammedesadcomert.shopping.ProductDetailFragment"
-        tools:layout="@layout/fragment_product_detail" />
+        android:name="com.muhammedesadcomert.shopping.ui.productdetail.ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail" >
+        <argument
+            android:name="categoryId"
+            app:argType="string" />
+    </fragment>
 </navigation>
