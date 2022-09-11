@@ -29,27 +29,39 @@
                 tools:src="@tools:sample/avatars" />
         </com.google.android.material.card.MaterialCardView>
 
-
         <TextView
             android:id="@+id/textView_product_title"
+            style="@style/TitleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/cardView_product_image"
             app:layout_constraintTop_toBottomOf="@id/cardView_product_image"
-            tools:text="Product name" />
+            tools:text="@string/product_name" />
 
         <TextView
             android:id="@+id/textView_product_price"
+            style="@style/TitleMediumBold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_medium"
-            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/textView_product_title"
             app:layout_constraintTop_toBottomOf="@id/textView_product_title"
-            tools:text="$123,40" />
+            tools:text="@string/price" />
+
+        <TextView
+            android:id="@+id/textView_product_campaign_price"
+            style="@style/TitleMediumBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_medium"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textView_product_title"
+            app:layout_constraintTop_toBottomOf="@id/textView_product_price"
+            tools:text="@string/price" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
