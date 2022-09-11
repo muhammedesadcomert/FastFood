@@ -24,8 +24,9 @@ class ProductDetailFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -55,7 +56,9 @@ class ProductDetailFragment : Fragment() {
                         if (product.campaignPrice != null && product.campaignPrice != product.price) {
                             textViewProductPrice.strikeThroughOnText()
                             textViewProductCampaignPrice.text =
-                                (product.campaignPrice.toString()).plus(getString(R.string.price_suffix))
+                                (product.campaignPrice.toString()).plus(
+                                    getString(R.string.price_suffix)
+                                )
                             textViewProductCampaignPrice.visibility = View.VISIBLE
                         }
 
