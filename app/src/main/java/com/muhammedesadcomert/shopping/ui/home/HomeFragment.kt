@@ -79,7 +79,7 @@ class HomeFragment : Fragment() {
     private fun initProductAdapter() {
         productAdapter = ProductAdapter { product ->
             findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(product.id!!)
+                HomeFragmentDirections.actionHomeFragmentToDetailFragment(product.id!!)
             )
         }
 

@@ -11,14 +11,14 @@
         android:label="@string/home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_HomeFragment_to_ProductDetailFragment"
-            app:destination="@id/ProductDetailFragment" />
+            android:id="@+id/action_HomeFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/ProductDetailFragment"
+        android:id="@+id/DetailFragment"
         android:label="@string/empty_string"
-        android:name="com.muhammedesadcomert.shopping.ui.productdetail.ProductDetailFragment"
-        tools:layout="@layout/fragment_product_detail" >
+        android:name="com.muhammedesadcomert.shopping.ui.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail">
         <argument
             android:name="productId"
             app:argType="string" />

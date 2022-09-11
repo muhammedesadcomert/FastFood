@@ -1,4 +1,4 @@
-package com.muhammedesadcomert.shopping.ui.productdetail
+package com.muhammedesadcomert.shopping.ui.detail
 
 import android.os.Bundle
 import android.text.Html
@@ -14,14 +14,14 @@ import com.muhammedesadcomert.shopping.common.util.extension.startShimmerLayout
 import com.muhammedesadcomert.shopping.common.util.extension.stopShimmerLayout
 import com.muhammedesadcomert.shopping.common.util.extension.strikeThroughOnText
 import com.muhammedesadcomert.shopping.common.util.extension.visible
-import com.muhammedesadcomert.shopping.databinding.FragmentProductDetailBinding
+import com.muhammedesadcomert.shopping.databinding.FragmentDetailBinding
 import com.muhammedesadcomert.shopping.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProductDetailFragment : Fragment() {
+class DetailFragment : Fragment() {
 
-    private var _binding: FragmentProductDetailBinding? = null
+    private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: HomeViewModel by viewModels()
@@ -31,7 +31,7 @@ class ProductDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -70,7 +70,7 @@ class ProductDetailFragment : Fragment() {
                         Html.fromHtml(product.description, Html.FROM_HTML_MODE_LEGACY)
 
                     Glide.with(requireContext()).load(product.image)
-                        .placeholder(R.drawable.blank_product_detail_image)
+                        .placeholder(R.drawable.blank_detail_image)
                         .into(imageViewProductImage)
 
                     binding.shimmerLayout.stopShimmerLayout()

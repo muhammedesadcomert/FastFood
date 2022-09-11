@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/product_detail_placeholder" />
+        <include layout="@layout/detail_placeholder" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                tools:context=".ui.productdetail.ProductDetailFragment">
+                tools:context=".ui.detail.DetailFragment">
 
                 <ImageView
                     android:id="@+id/imageView_product_image"
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/product_image"
-                    tools:src="@drawable/blank_product_detail_image" />
+                    tools:src="@drawable/blank_detail_image" />
 
                 <ImageView
                     android:id="@+id/imageView_sold_out"

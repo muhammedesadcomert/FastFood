@@ -29,7 +29,7 @@ class ProductAdapter(private val onItemClicked: (Product) -> Unit) :
                     textViewProductCampaignPrice.visibility = View.VISIBLE
                 }
                 Glide.with(itemView).load(product.image)
-                    .placeholder(R.drawable.blank_product_detail_image)
+                    .placeholder(R.drawable.blank_detail_image)
                     .into(imageViewProductImage)
             }
         }
