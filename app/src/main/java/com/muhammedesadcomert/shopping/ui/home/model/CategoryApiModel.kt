@@ -6,7 +6,7 @@ data class CategoryApiModel(
     @SerializedName("success")
     val success: Boolean,
     @SerializedName("data")
-    val categories: List<Category> = arrayListOf(),
+    val categories: List<Category> = arrayListOf()
 )
 
 data class Category(
@@ -27,5 +27,5 @@ data class Category(
     @SerializedName("isActive")
     val isActive: Boolean? = null,
     @SerializedName("subCategories")
-    val subCategories: ArrayList<String> = arrayListOf(),
+    val subCategories: ArrayList<String> = arrayListOf()
 )
