@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.muhammedesadcomert.shopping">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".ShoppingApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +17,7 @@
         android:theme="@style/Theme.Shopping"
         tools:targetApi="31">
         <activity
-            android:name="com.muhammedesadcomert.shopping.MainActivity"
+            android:name="com.muhammedesadcomert.shopping.ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Shopping">
             <intent-filter>
