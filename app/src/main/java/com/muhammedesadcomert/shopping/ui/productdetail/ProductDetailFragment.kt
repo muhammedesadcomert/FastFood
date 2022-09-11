@@ -10,7 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.muhammedesadcomert.shopping.R
+import com.muhammedesadcomert.shopping.common.util.extension.startShimmerLayout
+import com.muhammedesadcomert.shopping.common.util.extension.stopShimmerLayout
 import com.muhammedesadcomert.shopping.common.util.extension.strikeThroughOnText
+import com.muhammedesadcomert.shopping.common.util.extension.visible
 import com.muhammedesadcomert.shopping.databinding.FragmentProductDetailBinding
 import com.muhammedesadcomert.shopping.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,40 +41,41 @@ class ProductDetailFragment : Fragment() {
     }
 
     private fun initView() {
+        binding.shimmerLayout.startShimmerLayout()
         viewModel.getSingleProductDetail(requireArguments().get("productId") as String)
         viewModel.productUiState.observe(viewLifecycleOwner) { productUiState ->
-
-//            changeProgressBarState(productUiState.isLoading)
-
             if (!productUiState.errorMessage.isNullOrEmpty()) {
                 Toast.makeText(context, productUiState.errorMessage, Toast.LENGTH_LONG).show()
-            } else {
+            } else if (productUiState.product != null) {
                 with(binding) {
-                    productUiState.product?.let { product ->
+                    val product = productUiState.product
+                    textViewProductTitle.text = product.title
+                    textViewProductPrice.text = product.price.toString()
+                    (product.price.toString()).plus(getString(R.string.price_suffix))
 
-                        textViewProductTitle.text = product.title
-                        textViewProductPrice.text = product.price.toString()
-                        (product.price.toString()).plus(getString(R.string.price_suffix))
+                    if (product.campaignPrice != null && product.campaignPrice != product.price) {
+                        textViewProductPrice.strikeThroughOnText()
+                        textViewProductCampaignPrice.text =
+                            (product.campaignPrice.toString()).plus(
+                                getString(R.string.price_suffix)
+                            )
+                        textViewProductCampaignPrice.visibility = View.VISIBLE
+                    }
 
-                        if (product.campaignPrice != null && product.campaignPrice != product.price) {
-                            textViewProductPrice.strikeThroughOnText()
-                            textViewProductCampaignPrice.text =
-                                (product.campaignPrice.toString()).plus(
-                                    getString(R.string.price_suffix)
-                                )
-                            textViewProductCampaignPrice.visibility = View.VISIBLE
-                        }
+                    if (product.stock == 0) {
+                        imageViewSoldOut.visibility = View.VISIBLE
+                    }
 
-                        if (product.stock == 0) {
-                            imageViewSoldOut.visibility = View.VISIBLE
-                        }
+                    textViewProductDescription.text =
+                        Html.fromHtml(product.description, Html.FROM_HTML_MODE_LEGACY)
 
-                        textViewProductDescription.text =
-                            Html.fromHtml(product.description, Html.FROM_HTML_MODE_LEGACY)
+                    Glide.with(requireContext()).load(product.image)
+                        .placeholder(R.drawable.blank_product_detail_image)
+                        .into(imageViewProductImage)
 
-                        Glide.with(requireContext()).load(product.image)
-                            .placeholder(R.drawable.blank_product_detail_image)
-                            .into(imageViewProductImage)
+                    binding.shimmerLayout.stopShimmerLayout()
+                    if (binding.shimmerLayout.visibility == View.GONE) {
+                        binding.detailLayout.visible()
                     }
                 }
             }
