@@ -50,8 +50,8 @@ class DetailFragment : Fragment() {
                 with(binding) {
                     val product = productUiState.product
                     textViewProductTitle.text = product.title
-                    textViewProductPrice.text = product.price.toString()
-                    (product.price.toString()).plus(getString(R.string.price_suffix))
+                    textViewProductPrice.text =
+                        product.price.toString().plus(getString(R.string.price_suffix))
 
                     if (product.campaignPrice != null && product.campaignPrice != product.price) {
                         textViewProductPrice.strikeThroughOnText()
