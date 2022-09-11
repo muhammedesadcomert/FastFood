@@ -6,7 +6,9 @@ import com.muhammedesadcomert.shopping.data.mapper.ProductDtoMapper
 import com.muhammedesadcomert.shopping.data.mapper.ProductListDtoMapper
 import com.muhammedesadcomert.shopping.data.remote.ApiService
 import com.muhammedesadcomert.shopping.data.remote.AuthInterceptor
+import com.muhammedesadcomert.shopping.data.repository.CategoryRepositoryImpl
 import com.muhammedesadcomert.shopping.data.repository.ProductRepositoryImpl
+import com.muhammedesadcomert.shopping.domain.repository.CategoryRepository
 import com.muhammedesadcomert.shopping.domain.repository.ProductRepository
 import dagger.Module
 import dagger.Provides
@@ -47,15 +49,25 @@ object AppModule {
     @Provides
     fun provideProductRepository(
         apiService: ApiService,
-        categoryDtoMapper: CategoryDtoMapper,
         productListDtoMapper: ProductListDtoMapper,
         productDtoMapper: ProductDtoMapper,
     ): ProductRepository {
         return ProductRepositoryImpl(
             apiService = apiService,
-            categoryDtoMapper = categoryDtoMapper,
             productListDtoMapper = productListDtoMapper,
             productDtoMapper = productDtoMapper
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideCategoryRepository(
+        apiService: ApiService,
+        categoryDtoMapper: CategoryDtoMapper,
+    ): CategoryRepository {
+        return CategoryRepositoryImpl(
+            apiService = apiService,
+            categoryDtoMapper = categoryDtoMapper
         )
     }
 }
