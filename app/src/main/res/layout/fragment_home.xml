@@ -26,15 +26,6 @@
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <TextView
-        android:id="@+id/textView_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_large"
-        android:layout_marginTop="@dimen/space_large"
-        android:text="@string/economic_menu"
-        android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
-
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_layout_products"
         android:layout_width="match_parent"

@@ -53,7 +53,6 @@ class HomeFragment : Fragment() {
 
     private fun initCategoryAdapter() {
         categoryAdapter = CategoryAdapter { category ->
-            binding.textViewCategory.text = category.name
             productAdapter.submitList(arrayListOf())
             binding.shimmerLayoutProducts.startShimmerLayout()
             viewModel.getProducts(category.id!!)
