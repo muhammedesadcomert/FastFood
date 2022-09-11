@@ -8,8 +8,8 @@ import com.muhammedesadcomert.shopping.common.util.Constant.DEFAULT_CATEGORY
 import com.muhammedesadcomert.shopping.common.util.Constant.DEFAULT_SORT
 import com.muhammedesadcomert.shopping.common.util.Resource
 import com.muhammedesadcomert.shopping.data.repository.ProductRepositoryImpl
+import com.muhammedesadcomert.shopping.ui.detail.model.ProductUiState
 import com.muhammedesadcomert.shopping.ui.home.model.CategoriesUiState
-import com.muhammedesadcomert.shopping.ui.home.model.ProductUiState
 import com.muhammedesadcomert.shopping.ui.home.model.ProductsUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

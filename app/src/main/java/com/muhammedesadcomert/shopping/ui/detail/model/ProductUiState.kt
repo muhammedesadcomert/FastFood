@@ -1,4 +1,4 @@
-package com.muhammedesadcomert.shopping.ui.home.model
+package com.muhammedesadcomert.shopping.ui.detail.model
 
 import com.muhammedesadcomert.shopping.domain.model.Product
 
