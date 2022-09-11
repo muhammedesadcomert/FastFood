@@ -10,7 +10,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.muhammedesadcomert.shopping"
+        applicationId "com.muhammedesadcomert.fastfood"
         minSdk 24
         targetSdk 32
         versionCode 1
