@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.muhammedesadcomert.shopping.common.util.Constant.DEFAULT_CATEGORY
 import com.muhammedesadcomert.shopping.common.util.Constant.DEFAULT_SORT
 import com.muhammedesadcomert.shopping.common.util.Resource
-import com.muhammedesadcomert.shopping.data.repository.ProductRepositoryImpl
+import com.muhammedesadcomert.shopping.domain.repository.ProductRepository
 import com.muhammedesadcomert.shopping.ui.detail.model.ProductUiState
 import com.muhammedesadcomert.shopping.ui.home.model.CategoriesUiState
 import com.muhammedesadcomert.shopping.ui.home.model.ProductsUiState
@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val productRepository: ProductRepositoryImpl) :
+class HomeViewModel @Inject constructor(private val productRepository: ProductRepository) :
     ViewModel() {
     private var _categoriesUiState: MutableLiveData<CategoriesUiState> =
         MutableLiveData(CategoriesUiState.initial())

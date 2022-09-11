@@ -9,9 +9,8 @@ import com.muhammedesadcomert.shopping.data.remote.ApiService
 import com.muhammedesadcomert.shopping.domain.model.Category
 import com.muhammedesadcomert.shopping.domain.model.Product
 import com.muhammedesadcomert.shopping.domain.repository.ProductRepository
-import javax.inject.Inject
 
-class ProductRepositoryImpl @Inject constructor(
+class ProductRepositoryImpl(
     private val apiService: ApiService,
     private val categoryDtoMapper: CategoryDtoMapper,
     private val productListDtoMapper: ProductListDtoMapper,
