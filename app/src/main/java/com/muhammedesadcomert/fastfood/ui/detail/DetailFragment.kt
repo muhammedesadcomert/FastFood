@@ -10,11 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.muhammedesadcomert.fastfood.R
-import com.muhammedesadcomert.fastfood.common.util.extension.startShimmerLayout
-import com.muhammedesadcomert.fastfood.common.util.extension.stopShimmerLayout
-import com.muhammedesadcomert.fastfood.common.util.extension.strikeThroughOnText
-import com.muhammedesadcomert.fastfood.common.util.extension.visible
 import com.muhammedesadcomert.fastfood.databinding.FragmentDetailBinding
+import com.muhammedesadcomert.fastfood.util.extension.startShimmerLayout
+import com.muhammedesadcomert.fastfood.util.extension.stopShimmerLayout
+import com.muhammedesadcomert.fastfood.util.extension.strikeThroughOnText
+import com.muhammedesadcomert.fastfood.util.extension.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

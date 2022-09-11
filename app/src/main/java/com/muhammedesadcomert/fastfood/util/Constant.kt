@@ -1,4 +1,4 @@
-package com.muhammedesadcomert.fastfood.common.util
+package com.muhammedesadcomert.fastfood.util
 
 object Constant {
     const val BASE_URL = "https://api.shopiroller.com/v2.0/"

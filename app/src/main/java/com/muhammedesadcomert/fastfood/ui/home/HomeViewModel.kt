@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.muhammedesadcomert.fastfood.common.util.Constant.DEFAULT_CATEGORY
-import com.muhammedesadcomert.fastfood.common.util.Constant.DEFAULT_SORT
-import com.muhammedesadcomert.fastfood.common.util.Resource
 import com.muhammedesadcomert.fastfood.domain.repository.CategoryRepository
 import com.muhammedesadcomert.fastfood.domain.repository.ProductRepository
 import com.muhammedesadcomert.fastfood.ui.home.model.CategoriesUiState
 import com.muhammedesadcomert.fastfood.ui.home.model.ProductsUiState
+import com.muhammedesadcomert.fastfood.util.Constant.DEFAULT_CATEGORY
+import com.muhammedesadcomert.fastfood.util.Constant.DEFAULT_SORT
+import com.muhammedesadcomert.fastfood.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

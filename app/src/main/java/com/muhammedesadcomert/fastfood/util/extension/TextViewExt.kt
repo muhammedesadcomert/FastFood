@@ -1,4 +1,4 @@
-package com.muhammedesadcomert.fastfood.common.util.extension
+package com.muhammedesadcomert.fastfood.util.extension
 
 import android.graphics.Paint
 import android.graphics.Typeface

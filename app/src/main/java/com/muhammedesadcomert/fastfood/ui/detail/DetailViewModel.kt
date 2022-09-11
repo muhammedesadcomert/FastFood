@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.muhammedesadcomert.fastfood.common.util.Resource
 import com.muhammedesadcomert.fastfood.domain.repository.ProductRepository
 import com.muhammedesadcomert.fastfood.ui.detail.model.ProductUiState
+import com.muhammedesadcomert.fastfood.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

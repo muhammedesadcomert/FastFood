@@ -1,6 +1,6 @@
-package com.muhammedesadcomert.fastfood.common.util.extension
+package com.muhammedesadcomert.fastfood.util.extension
 
-import com.muhammedesadcomert.fastfood.common.util.Resource
+import com.muhammedesadcomert.fastfood.util.Resource
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException

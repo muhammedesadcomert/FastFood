@@ -1,4 +1,4 @@
-package com.muhammedesadcomert.fastfood.common.util
+package com.muhammedesadcomert.fastfood.util
 
 sealed class Resource<out S, out F> {
     data class Success<out S>(val data: S?) : Resource<S, Nothing>()

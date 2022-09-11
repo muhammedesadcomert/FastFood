@@ -1,12 +1,12 @@
 package com.muhammedesadcomert.fastfood.data.repository
 
-import com.muhammedesadcomert.fastfood.common.util.Resource
-import com.muhammedesadcomert.fastfood.common.util.extension.safeApiCall
 import com.muhammedesadcomert.fastfood.data.mapper.ProductDtoMapper
 import com.muhammedesadcomert.fastfood.data.mapper.ProductListDtoMapper
 import com.muhammedesadcomert.fastfood.data.remote.ApiService
 import com.muhammedesadcomert.fastfood.domain.model.Product
 import com.muhammedesadcomert.fastfood.domain.repository.ProductRepository
+import com.muhammedesadcomert.fastfood.util.Resource
+import com.muhammedesadcomert.fastfood.util.extension.safeApiCall
 
 class ProductRepositoryImpl(
     private val apiService: ApiService,

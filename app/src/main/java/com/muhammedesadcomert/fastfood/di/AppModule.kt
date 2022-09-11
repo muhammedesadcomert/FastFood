@@ -1,6 +1,5 @@
 package com.muhammedesadcomert.fastfood.di
 
-import com.muhammedesadcomert.fastfood.common.util.Constant.BASE_URL
 import com.muhammedesadcomert.fastfood.data.mapper.CategoryDtoMapper
 import com.muhammedesadcomert.fastfood.data.mapper.ProductDtoMapper
 import com.muhammedesadcomert.fastfood.data.mapper.ProductListDtoMapper
@@ -10,6 +9,7 @@ import com.muhammedesadcomert.fastfood.data.repository.CategoryRepositoryImpl
 import com.muhammedesadcomert.fastfood.data.repository.ProductRepositoryImpl
 import com.muhammedesadcomert.fastfood.domain.repository.CategoryRepository
 import com.muhammedesadcomert.fastfood.domain.repository.ProductRepository
+import com.muhammedesadcomert.fastfood.util.Constant.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

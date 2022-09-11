@@ -1,7 +1,7 @@
 package com.muhammedesadcomert.fastfood.data.remote
 
-import com.muhammedesadcomert.fastfood.common.util.Constant.ALIAS_KEY
-import com.muhammedesadcomert.fastfood.common.util.Constant.API_KEY
+import com.muhammedesadcomert.fastfood.util.Constant.ALIAS_KEY
+import com.muhammedesadcomert.fastfood.util.Constant.API_KEY
 import okhttp3.Interceptor
 import okhttp3.Response
 

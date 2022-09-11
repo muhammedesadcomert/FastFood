@@ -1,7 +1,7 @@
 package com.muhammedesadcomert.fastfood.domain.repository
 
-import com.muhammedesadcomert.fastfood.common.util.Resource
 import com.muhammedesadcomert.fastfood.domain.model.Product
+import com.muhammedesadcomert.fastfood.util.Resource
 
 interface ProductRepository {
 

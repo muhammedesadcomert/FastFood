@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.muhammedesadcomert.fastfood.R
-import com.muhammedesadcomert.fastfood.common.util.Constant.PRICE_SUFFIX
-import com.muhammedesadcomert.fastfood.common.util.extension.strikeThroughOnText
 import com.muhammedesadcomert.fastfood.databinding.ProductItemBinding
 import com.muhammedesadcomert.fastfood.domain.model.Product
 import com.muhammedesadcomert.fastfood.ui.home.ProductAdapter.ProductViewHolder
+import com.muhammedesadcomert.fastfood.util.Constant.PRICE_SUFFIX
+import com.muhammedesadcomert.fastfood.util.extension.strikeThroughOnText
 
 class ProductAdapter(private val onItemClicked: (Product) -> Unit) :
     ListAdapter<Product, ProductViewHolder>(DIFF_CALLBACK) {
