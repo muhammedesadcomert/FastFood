@@ -1,7 +1,7 @@
 package com.muhammedesadcomert.shopping.data.repository
 
 import com.muhammedesadcomert.shopping.common.util.Resource
-import com.muhammedesadcomert.shopping.common.util.safeApiCall
+import com.muhammedesadcomert.shopping.common.util.extension.safeApiCall
 import com.muhammedesadcomert.shopping.data.model.CategoryDtoMapper
 import com.muhammedesadcomert.shopping.data.model.ProductDtoMapper
 import com.muhammedesadcomert.shopping.data.model.ProductListDtoMapper

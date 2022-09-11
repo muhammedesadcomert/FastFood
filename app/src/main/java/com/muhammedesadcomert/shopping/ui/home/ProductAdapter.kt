@@ -1,11 +1,15 @@
 package com.muhammedesadcomert.shopping.ui.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.muhammedesadcomert.shopping.R
+import com.muhammedesadcomert.shopping.common.util.Constant.PRICE_SUFFIX
+import com.muhammedesadcomert.shopping.common.util.extension.strikeThroughOnText
 import com.muhammedesadcomert.shopping.databinding.ProductItemBinding
 import com.muhammedesadcomert.shopping.domain.model.Product
 import com.muhammedesadcomert.shopping.ui.home.ProductAdapter.ProductViewHolder
@@ -17,8 +21,16 @@ class ProductAdapter(private val onItemClicked: (Product) -> Unit) :
         fun bind(product: Product) {
             with(binding) {
                 textViewProductTitle.text = product.title
-                textViewProductPrice.text = "$".plus(product.price.toString())
-                Glide.with(itemView).load(product.image).into(imageViewProductImage)
+                textViewProductPrice.text = product.price.toString().plus(PRICE_SUFFIX)
+                if (product.campaignPrice != null && product.campaignPrice != product.price) {
+                    textViewProductPrice.strikeThroughOnText()
+                    textViewProductCampaignPrice.text =
+                        product.campaignPrice.toString().plus(PRICE_SUFFIX)
+                    textViewProductCampaignPrice.visibility = View.VISIBLE
+                }
+                Glide.with(itemView).load(product.image)
+                    .placeholder(R.drawable.blank_product_detail_image)
+                    .into(imageViewProductImage)
             }
         }
     }
