@@ -19,7 +19,7 @@
             android:layout_width="@dimen/category_icon_size"
             android:layout_height="@dimen/category_icon_size"
             android:contentDescription="@string/category_image"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@drawable/blank_category_icon" />
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
