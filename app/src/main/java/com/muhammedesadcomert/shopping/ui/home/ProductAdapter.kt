@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.muhammedesadcomert.shopping.databinding.ProductItemBinding
+import com.muhammedesadcomert.shopping.domain.model.Product
 import com.muhammedesadcomert.shopping.ui.home.ProductAdapter.ProductViewHolder
-import com.muhammedesadcomert.shopping.ui.home.model.Product
 
 class ProductAdapter(private val onItemClicked: (Product) -> Unit) :
     ListAdapter<Product, ProductViewHolder>(DIFF_CALLBACK) {
@@ -18,7 +18,7 @@ class ProductAdapter(private val onItemClicked: (Product) -> Unit) :
             with(binding) {
                 textViewProductTitle.text = product.title
                 textViewProductPrice.text = "$".plus(product.price.toString())
-                Glide.with(itemView).load(product.featuredImage!!.t).into(imageViewProductImage)
+                Glide.with(itemView).load(product.image).into(imageViewProductImage)
             }
         }
     }

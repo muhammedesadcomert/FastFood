@@ -1,8 +1,6 @@
 package com.muhammedesadcomert.shopping.common.util
 
-sealed class Resource<out T> {
-    data class Success<out T>(val data: T?) : Resource<T>()
-    data class Failure(val errorMessage: String) : Resource<Nothing>()
-    object Loading : Resource<Nothing>()
-    object NONE : Resource<Nothing>()
+sealed class Resource<out S, out F> {
+    data class Success<out S>(val data: S?) : Resource<S, Nothing>()
+    data class Failure<out F>(val errorMessage: F) : Resource<Nothing, F>()
 }

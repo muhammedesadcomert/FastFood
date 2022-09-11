@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -33,21 +34,33 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initCategoryAdapter()
-        submitCategories()
+        handleCategories()
         initProductAdapter()
-        submitProducts()
+        handleProducts()
     }
 
-    private fun submitCategories() {
-        viewModel.categories.observe(viewLifecycleOwner) { categories ->
-            categoryAdapter.submitList(categories)
+    private fun handleCategories() {
+        viewModel.categoriesUiState.observe(viewLifecycleOwner) { categoriesUiState ->
+            changeProgressBarState(categoriesUiState.isLoading)
+
+            if (!categoriesUiState.errorMessage.isNullOrEmpty()) {
+                Toast.makeText(context, categoriesUiState.errorMessage, Toast.LENGTH_LONG).show()
+            } else {
+                categoryAdapter.submitList(categoriesUiState.categories)
+            }
+        }
+    }
+
+    private fun changeProgressBarState(loading: Boolean) {
+        if (loading) {
+        } else {
         }
     }
 
     private fun initCategoryAdapter() {
         categoryAdapter = CategoryAdapter { category ->
             binding.textViewCategory.text = category.name
-            viewModel.getProducts(category.categoryId)
+            viewModel.getProducts(category.id!!)
         }
 
         binding.recyclerViewCategories.apply {
@@ -56,9 +69,15 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun submitProducts() {
-        viewModel.products.observe(viewLifecycleOwner) { products ->
-            productAdapter.submitList(products)
+    private fun handleProducts() {
+        viewModel.productsUiState.observe(viewLifecycleOwner) { productsUiState ->
+            changeProgressBarState(productsUiState.isLoading)
+
+            if (!productsUiState.errorMessage.isNullOrEmpty()) {
+                Toast.makeText(context, productsUiState.errorMessage, Toast.LENGTH_LONG).show()
+            } else {
+                productAdapter.submitList(productsUiState.products)
+            }
         }
     }
 
