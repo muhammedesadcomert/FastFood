@@ -35,6 +35,27 @@
         android:text="@string/economic_menu"
         android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_medium_plus">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/product_item_placeholder" />
+
+            <include layout="@layout/product_item_placeholder" />
+
+            <include layout="@layout/product_item_placeholder" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_products"
         android:layout_width="match_parent"

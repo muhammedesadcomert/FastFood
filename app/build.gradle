@@ -77,4 +77,7 @@ dependencies {
     // Moshi
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    // Shimmer for Android by Facebook
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

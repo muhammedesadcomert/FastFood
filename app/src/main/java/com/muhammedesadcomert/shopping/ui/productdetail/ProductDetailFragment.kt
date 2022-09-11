@@ -15,6 +15,7 @@ import com.muhammedesadcomert.shopping.databinding.FragmentProductDetailBinding
 import com.muhammedesadcomert.shopping.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class ProductDetailFragment : Fragment() {
 
@@ -29,12 +30,24 @@ class ProductDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
+
+        binding.shimmerLayout.apply {
+            startShimmer()
+            visibility = View.VISIBLE
+        }
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initView()
+
+        binding.shimmerLayout.apply {
+            stopShimmer()
+            visibility = View.GONE
+        }
     }
 
     private fun initView() {

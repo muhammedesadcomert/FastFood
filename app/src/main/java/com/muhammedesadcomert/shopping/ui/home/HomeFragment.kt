@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.muhammedesadcomert.shopping.common.util.extension.startShimmerLayout
+import com.muhammedesadcomert.shopping.common.util.extension.stopShimmerLayout
 import com.muhammedesadcomert.shopping.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,9 +25,8 @@ class HomeFragment : Fragment() {
     private lateinit var productAdapter: ProductAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,6 +34,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.shimmerLayoutProducts.startShimmerLayout()
         initCategoryAdapter()
         handleCategories()
         initProductAdapter()
@@ -41,8 +43,6 @@ class HomeFragment : Fragment() {
 
     private fun handleCategories() {
         viewModel.categoriesUiState.observe(viewLifecycleOwner) { categoriesUiState ->
-            changeProgressBarState(categoriesUiState.isLoading)
-
             if (!categoriesUiState.errorMessage.isNullOrEmpty()) {
                 Toast.makeText(context, categoriesUiState.errorMessage, Toast.LENGTH_LONG).show()
             } else {
@@ -51,15 +51,11 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun changeProgressBarState(loading: Boolean) {
-        if (loading) {
-        } else {
-        }
-    }
-
     private fun initCategoryAdapter() {
         categoryAdapter = CategoryAdapter { category ->
             binding.textViewCategory.text = category.name
+            productAdapter.submitList(arrayListOf())
+            binding.shimmerLayoutProducts.startShimmerLayout()
             viewModel.getProducts(category.id!!)
         }
 
@@ -71,13 +67,12 @@ class HomeFragment : Fragment() {
 
     private fun handleProducts() {
         viewModel.productsUiState.observe(viewLifecycleOwner) { productsUiState ->
-            changeProgressBarState(productsUiState.isLoading)
-
             if (!productsUiState.errorMessage.isNullOrEmpty()) {
                 Toast.makeText(context, productsUiState.errorMessage, Toast.LENGTH_LONG).show()
             } else {
                 productAdapter.submitList(productsUiState.products)
             }
+            binding.shimmerLayoutProducts.stopShimmerLayout()
         }
     }
 
