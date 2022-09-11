@@ -7,5 +7,5 @@ data class Product(
     val description: String? = null,
     val price: Double? = null,
     val campaignPrice: Double? = null,
-    val stock: Int? = null,
+    val stock: Int? = null
 )

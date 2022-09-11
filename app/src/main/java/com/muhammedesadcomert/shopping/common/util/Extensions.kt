@@ -5,7 +5,7 @@ import retrofit2.Response
 import java.io.IOException
 
 inline fun <T, R> Response<T>.safeApiCall(
-    transform: (T) -> R, // mapper from data layer to domain layer
+    transform: (T) -> R // mapper from data layer to domain layer
 ): Resource<R, String> =
     try {
         if (this.isSuccessful) {

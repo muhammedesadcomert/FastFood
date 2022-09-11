@@ -6,7 +6,7 @@ data class CategoryDto(
     @SerializedName("success")
     val success: Boolean,
     @SerializedName("data")
-    val categories: List<CategoryData> = arrayListOf(),
+    val categories: List<CategoryData> = arrayListOf()
 )
 
 data class CategoryData(
@@ -27,5 +27,5 @@ data class CategoryData(
     @SerializedName("isActive")
     val isActive: Boolean? = null,
     @SerializedName("subCategories")
-    val subCategories: ArrayList<String> = arrayListOf(),
+    val subCategories: ArrayList<String> = arrayListOf()
 )

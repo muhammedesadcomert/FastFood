@@ -15,7 +15,7 @@ class ProductRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val categoryDtoMapper: CategoryDtoMapper,
     private val productListDtoMapper: ProductListDtoMapper,
-    private val productDtoMapper: ProductDtoMapper,
+    private val productDtoMapper: ProductDtoMapper
 ) : ProductRepository {
 
     override suspend fun getCategories(): Resource<List<Category>, String> =
@@ -24,7 +24,7 @@ class ProductRepositoryImpl @Inject constructor(
 
     override suspend fun getProducts(
         categoryId: String,
-        sort: String,
+        sort: String
     ): Resource<List<Product>, String> = apiService.getProducts(categoryId, sort)
         .safeApiCall { productListDtoMapper.toDomainList(it.products) }
 

@@ -8,14 +8,14 @@ data class ProductListDto(
     @SerializedName("data")
     val products: List<ProductData> = arrayListOf(),
     @SerializedName("meta")
-    val meta: Meta? = null,
+    val meta: Meta? = null
 )
 
 data class ProductDto(
     @SerializedName("success")
     val success: Boolean? = null,
     @SerializedName("data")
-    val product: ProductData? = null,
+    val product: ProductData? = null
 )
 
 data class ProductData(
@@ -76,7 +76,7 @@ data class ProductData(
     @SerializedName("useFixPrice")
     val useFixPrice: Boolean? = null,
     @SerializedName("variantData")
-    val variantData: List<String> = arrayListOf(),
+    val variantData: List<String> = arrayListOf()
 )
 
 data class ProductCategory(
@@ -97,7 +97,7 @@ data class ProductCategory(
     @SerializedName("isActive")
     val isActive: Boolean? = null,
     @SerializedName("subCategories")
-    val subCategories: List<String> = arrayListOf(),
+    val subCategories: List<String> = arrayListOf()
 )
 
 data class Brand(
@@ -112,33 +112,33 @@ data class Brand(
     @SerializedName("name")
     val name: String? = null,
     @SerializedName("updateDate")
-    val updateDate: String? = null,
+    val updateDate: String? = null
 )
 
 data class FeaturedImage(
     @SerializedName("t")
     val t: String? = null,
     @SerializedName("n")
-    val n: String? = null,
+    val n: String? = null
 )
 
 data class Images(
     @SerializedName("t")
     val t: String? = null,
     @SerializedName("n")
-    val n: String? = null,
+    val n: String? = null
 )
 
 data class Icon(
     @SerializedName("t")
     val t: String? = null,
     @SerializedName("n")
-    val n: String? = null,
+    val n: String? = null
 )
 
 data class Meta(
     @SerializedName("queryCount")
     val queryCount: Int? = null,
     @SerializedName("itemsCount")
-    val itemsCount: Int? = null,
+    val itemsCount: Int? = null
 )

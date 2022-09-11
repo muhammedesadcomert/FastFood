@@ -53,9 +53,7 @@ class HomeFragment : Fragment() {
 
     private fun changeProgressBarState(loading: Boolean) {
         if (loading) {
-
         } else {
-
         }
     }
 
