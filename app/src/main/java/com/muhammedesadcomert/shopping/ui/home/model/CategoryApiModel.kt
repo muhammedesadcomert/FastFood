@@ -6,26 +6,26 @@ data class CategoryApiModel(
     @SerializedName("success")
     val success: Boolean,
     @SerializedName("data")
-    val categories: List<Category>,
+    val categories: List<Category> = arrayListOf(),
 )
 
 data class Category(
     @SerializedName("categoryId")
     val categoryId: String,
-    @SerializedName("createDate")
-    val createDate: String,
-    @SerializedName("icon")
-    val icon: String,
-    @SerializedName("isActive")
-    val isActive: Boolean,
     @SerializedName("name")
-    val name: String,
+    val name: String? = null,
+    @SerializedName("icon")
+    val icon: String? = null,
     @SerializedName("orderIndex")
-    val orderIndex: Int,
-    @SerializedName("subCategories")
-    val subCategories: List<Any>,
-    @SerializedName("totalProducts")
-    val totalProducts: Int,
+    val orderIndex: Int? = null,
+    @SerializedName("createDate")
+    val createDate: String? = null,
     @SerializedName("updateDate")
-    val updateDate: String,
+    val updateDate: String? = null,
+    @SerializedName("totalProducts")
+    val totalProducts: Int? = null,
+    @SerializedName("isActive")
+    val isActive: Boolean? = null,
+    @SerializedName("subCategories")
+    val subCategories: ArrayList<String> = arrayListOf(),
 )

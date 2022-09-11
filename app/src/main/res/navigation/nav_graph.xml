@@ -20,7 +20,7 @@
         android:name="com.muhammedesadcomert.shopping.ui.productdetail.ProductDetailFragment"
         tools:layout="@layout/fragment_product_detail" >
         <argument
-            android:name="categoryId"
+            android:name="productId"
             app:argType="string" />
     </fragment>
 </navigation>
