@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/detail_placeholder" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/button_layout_buy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:context=".ui.detail.DetailFragment">
+
+                <ImageView
+                    android:id="@+id/imageView_product_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/product_image"
+                    tools:src="@drawable/blank_detail_image" />
+
+                <ImageView
+                    android:id="@+id/imageView_sold_out"
+                    android:layout_width="72dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="@dimen/space_medium"
+                    android:contentDescription="@string/sold_out"
+                    android:src="@drawable/sold_out"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textView_product_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_medium"
+                    android:layout_marginTop="@dimen/space_medium"
+                    android:layout_marginEnd="@dimen/space_medium"
+                    android:textSize="16sp"
+                    tools:text="@string/product_title" />
+
+                <TextView
+                    android:id="@+id/textView_product_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_medium"
+                    android:layout_marginTop="@dimen/space_medium"
+                    android:layout_marginEnd="@dimen/space_medium"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="@string/price" />
+
+                <TextView
+                    android:id="@+id/textView_product_campaign_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_medium"
+                    android:layout_marginTop="@dimen/space_medium"
+                    android:layout_marginEnd="@dimen/space_medium"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:text="@string/price" />
+
+                <TextView
+                    android:id="@+id/textView_product_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_medium"
+                    android:layout_marginTop="@dimen/space_medium"
+                    android:layout_marginEnd="@dimen/space_medium"
+                    tools:text="@string/product_description" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/button_layout_buy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/add_to_cart" />
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
