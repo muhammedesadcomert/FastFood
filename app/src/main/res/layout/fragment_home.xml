@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingStart="@dimen/space_large"
+    android:paddingTop="@dimen/space_large"
+    android:paddingEnd="@dimen/space_large"
     tools:context=".ui.home.HomeFragment">
 
     <TextView
         android:id="@+id/textView_categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_large"
-        android:layout_marginTop="@dimen/space_large"
         android:text="@string/categories"
         android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
@@ -20,21 +21,19 @@
         android:id="@+id/recyclerView_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_medium_plus"
         android:layout_marginTop="@dimen/space_large"
-        android:layout_marginEnd="@dimen/space_medium_plus"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_layout_products"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_medium_plus">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/space_large">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <include layout="@layout/product_item_placeholder" />
@@ -50,8 +49,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_products"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_medium_plus"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/space_large"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:spanCount="2" />
 
