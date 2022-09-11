@@ -40,10 +40,11 @@ class DetailFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.shimmerLayout.startShimmerLayout()
         viewModel.getSingleProductDetail(requireArguments().get("productId") as String)
         viewModel.productUiState.observe(viewLifecycleOwner) { productUiState ->
-            if (!productUiState.errorMessage.isNullOrEmpty()) {
+            if (productUiState.isLoading) {
+                binding.shimmerLayout.startShimmerLayout()
+            } else if (!productUiState.errorMessage.isNullOrEmpty()) {
                 Toast.makeText(context, productUiState.errorMessage, Toast.LENGTH_LONG).show()
             } else if (productUiState.product != null) {
                 with(binding) {

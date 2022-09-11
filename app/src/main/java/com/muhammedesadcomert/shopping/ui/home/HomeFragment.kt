@@ -35,7 +35,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.shimmerLayoutProducts.startShimmerLayout()
         initCategoryAdapter()
         handleCategories()
         initProductAdapter()
@@ -46,7 +45,7 @@ class HomeFragment : Fragment() {
         viewModel.categoriesUiState.observe(viewLifecycleOwner) { categoriesUiState ->
             if (!categoriesUiState.errorMessage.isNullOrEmpty()) {
                 Toast.makeText(context, categoriesUiState.errorMessage, Toast.LENGTH_LONG).show()
-            } else {
+            } else if (categoriesUiState.categories.isNotEmpty()) {
                 categoryAdapter.submitList(categoriesUiState.categories)
             }
         }
@@ -54,7 +53,7 @@ class HomeFragment : Fragment() {
 
     private fun initCategoryAdapter() {
         categoryAdapter = CategoryAdapter { category ->
-            productAdapter.submitList(arrayListOf())
+            productAdapter.submitList(null)
             binding.shimmerLayoutProducts.startShimmerLayout()
             viewModel.getProducts(category.id!!)
         }
@@ -67,12 +66,15 @@ class HomeFragment : Fragment() {
 
     private fun handleProducts() {
         viewModel.productsUiState.observe(viewLifecycleOwner) { productsUiState ->
-            if (!productsUiState.errorMessage.isNullOrEmpty()) {
+            if (productsUiState.isLoading) {
+                binding.shimmerLayoutProducts.startShimmerLayout()
+            } else if ((productsUiState.errorMessage.isNullOrEmpty()).not()) {
                 Toast.makeText(context, productsUiState.errorMessage, Toast.LENGTH_LONG).show()
-            } else {
+                binding.shimmerLayoutProducts.stopShimmerLayout()
+            } else if (productsUiState.products.isNotEmpty()) {
                 productAdapter.submitList(productsUiState.products)
+                binding.shimmerLayoutProducts.stopShimmerLayout()
             }
-            binding.shimmerLayoutProducts.stopShimmerLayout()
         }
     }
 

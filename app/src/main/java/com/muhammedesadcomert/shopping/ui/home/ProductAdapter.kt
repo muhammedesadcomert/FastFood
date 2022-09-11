@@ -16,6 +16,7 @@ import com.muhammedesadcomert.shopping.ui.home.ProductAdapter.ProductViewHolder
 
 class ProductAdapter(private val onItemClicked: (Product) -> Unit) :
     ListAdapter<Product, ProductViewHolder>(DIFF_CALLBACK) {
+
     inner class ProductViewHolder(private val binding: ProductItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
