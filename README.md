@@ -8,8 +8,8 @@ An Android application where you can view and examine the details of fast food d
 
 - [Kotlin](https://kotlinlang.org/) - Google officially supports Kotlin on Android as a “first-class” language and it has a [a lot of benefits](https://developer.android.com/kotlin).
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) & [Flow](https://developer.android.com/kotlin/flow).
-- [MVVM Architecture](https://developer.android.com/jetpack/guide) - Modern, maintainable, and Google-suggested app architecture.
-- [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
+- [MVVM Architecture](https://developer.android.com/topic/architecture#recommended-app-arch) - Modern, maintainable, and Google-suggested app architecture.
+- Android Architecture Components - Collection of libraries that help you design robust, testable, and maintainable apps.
   - A single-activity architecture, using the [Navigation component](https://developer.android.com/guide/navigation/navigation-getting-started) to manage fragment operations.
   - [ViewBinding](https://developer.android.com/topic/libraries/view-binding) - Generates a binding class for each XML layout file present in that module and allows you to write code more easily that interacts with views.
   - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Data objects that notify views when the underlying database changes.
