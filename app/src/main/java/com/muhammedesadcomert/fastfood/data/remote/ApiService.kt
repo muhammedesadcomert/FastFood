@@ -15,7 +15,7 @@ interface ApiService {
     @GET("products/advanced-filtered")
     suspend fun getProducts(
         @Query("categoryId") categoryId: String,
-        @Query("sort") sort: String
+        @Query("sort") sortingType: String
     ): Response<ProductListDto>
 
     @GET("products/{productId}")
