@@ -1,6 +1,6 @@
 # 🍔 FastFood
 
-<img align="right" width="50%" src="demo/Demo.gif">
+<img align="right" width="30%" src="demo/Demo.gif">
 
 An Android application where you can view and examine the details of fast food divided into categories.
 
