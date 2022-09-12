@@ -8,8 +8,8 @@ import com.muhammedesadcomert.fastfood.domain.repository.CategoryRepository
 import com.muhammedesadcomert.fastfood.domain.repository.ProductRepository
 import com.muhammedesadcomert.fastfood.ui.home.model.CategoriesUiState
 import com.muhammedesadcomert.fastfood.ui.home.model.ProductsUiState
-import com.muhammedesadcomert.fastfood.util.Constant.DEFAULT_CATEGORY
-import com.muhammedesadcomert.fastfood.util.Constant.DEFAULT_SORT
+import com.muhammedesadcomert.fastfood.util.Constant.CURRENT_CATEGORY
+import com.muhammedesadcomert.fastfood.util.Constant.CURRENT_SORTING_TYPE
 import com.muhammedesadcomert.fastfood.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -19,8 +19,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val productRepository: ProductRepository,
     private val categoryRepository: CategoryRepository
-) :
-    ViewModel() {
+) : ViewModel() {
 
     private var _categoriesUiState: MutableLiveData<CategoriesUiState> =
         MutableLiveData(CategoriesUiState.initial())
@@ -57,10 +56,13 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getProducts(categoryId: String = DEFAULT_CATEGORY, sort: String = DEFAULT_SORT) {
+    fun getProducts(
+        categoryId: String = CURRENT_CATEGORY,
+        sortingType: String = CURRENT_SORTING_TYPE
+    ) {
         viewModelScope.launch {
             _productsUiState.value = _productsUiState.value?.copy(isLoading = true)
-            when (val resource = productRepository.getProducts(categoryId, sort)) {
+            when (val resource = productRepository.getProducts(categoryId, sortingType)) {
                 is Resource.Failure -> {
                     _productsUiState.value = _productsUiState.value?.copy(
                         errorMessage = resource.errorMessage,

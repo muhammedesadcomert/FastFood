@@ -69,7 +69,7 @@
                     android:layout_marginEnd="@dimen/space_medium"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:text="@string/price" />
+                    tools:text="@string/selling_price" />
 
                 <TextView
                     android:id="@+id/textView_product_campaign_price"
@@ -81,7 +81,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:visibility="gone"
-                    tools:text="@string/price" />
+                    tools:text="@string/selling_price" />
 
                 <TextView
                     android:id="@+id/textView_product_description"
