@@ -1,8 +1,10 @@
-<img align="right" width="30%" src="demo/Demo.gif">
-
 # 🍔 FastFood
 
 An Android application where you can view and examine the details of fast food divided into categories.
+
+## Demo
+
+<img width="30%" src="demo/Demo.gif">
 
 ## 🛠 Tech Stack & Open-Source Libraries
 - [Kotlin](https://kotlinlang.org/) - Google officially supports Kotlin on Android as a “first-class” language and it has a [a lot of benefits](https://developer.android.com/kotlin).
