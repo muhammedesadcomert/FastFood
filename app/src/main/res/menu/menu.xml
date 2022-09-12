@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.muhammedesadcomert.fastfood.ui.MainActivity">
     <item
-        android:id="@+id/filter"
-        android:icon="@drawable/ic_filter"
-        android:title="@string/filter"
+        android:id="@+id/sort"
+        android:icon="@drawable/ic_sort"
+        android:title="@string/sort"
         app:showAsAction="always" />
 </menu>

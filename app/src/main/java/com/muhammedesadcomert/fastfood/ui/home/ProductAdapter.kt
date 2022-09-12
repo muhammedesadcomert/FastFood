@@ -3,6 +3,7 @@ package com.muhammedesadcomert.fastfood.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -23,12 +24,14 @@ class ProductAdapter(private val onItemClicked: (Product) -> Unit) :
             with(binding) {
                 textViewProductTitle.text = product.title
                 textViewProductPrice.text = product.price.toString().plus(PRICE_SUFFIX)
+
                 if (product.campaignPrice != null && product.campaignPrice != product.price) {
                     textViewProductPrice.strikeThroughOnText()
                     textViewProductCampaignPrice.text =
                         product.campaignPrice.toString().plus(PRICE_SUFFIX)
                     textViewProductCampaignPrice.visibility = View.VISIBLE
                 }
+
                 Glide.with(itemView).load(product.image)
                     .placeholder(R.drawable.blank_detail_image)
                     .into(imageViewProductImage)
@@ -43,12 +46,16 @@ class ProductAdapter(private val onItemClicked: (Product) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        val product = currentList[position]
+        val product = differ.currentList[position]
         holder.bind(product)
         holder.itemView.setOnClickListener {
             onItemClicked(product)
         }
     }
+
+    val differ = AsyncListDiffer(this, DIFF_CALLBACK)
+
+    override fun getItemCount() = differ.currentList.size
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Product>() {

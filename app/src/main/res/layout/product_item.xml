@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/textView_product_title"
             app:layout_constraintTop_toBottomOf="@id/textView_product_title"
-            tools:text="@string/price" />
+            tools:text="@string/selling_price" />
 
         <TextView
             android:id="@+id/textView_product_campaign_price"
@@ -61,7 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/textView_product_title"
             app:layout_constraintTop_toBottomOf="@id/textView_product_price"
-            tools:text="@string/price" />
+            tools:text="@string/selling_price" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
