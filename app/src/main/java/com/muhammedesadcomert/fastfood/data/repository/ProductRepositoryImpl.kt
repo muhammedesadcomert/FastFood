@@ -16,8 +16,8 @@ class ProductRepositoryImpl(
 
     override suspend fun getProducts(
         categoryId: String,
-        sort: String
-    ): Resource<List<Product>, String> = apiService.getProducts(categoryId, sort)
+        sortingType: String
+    ): Resource<List<Product>, String> = apiService.getProducts(categoryId, sortingType)
         .safeApiCall { productListDtoMapper.toDomainList(it.products) }
 
     override suspend fun getSingleProductDetail(productId: String): Resource<Product, String> =

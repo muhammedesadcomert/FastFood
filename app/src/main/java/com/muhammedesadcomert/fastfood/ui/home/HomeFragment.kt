@@ -1,14 +1,17 @@
 package com.muhammedesadcomert.fastfood.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
+import com.muhammedesadcomert.fastfood.R
 import com.muhammedesadcomert.fastfood.databinding.FragmentHomeBinding
+import com.muhammedesadcomert.fastfood.util.Constant.CURRENT_CATEGORY
 import com.muhammedesadcomert.fastfood.util.extension.startShimmerLayout
 import com.muhammedesadcomert.fastfood.util.extension.stopShimmerLayout
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,10 +38,34 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initMenuProvider()
         initCategoryAdapter()
         handleCategories()
         initProductAdapter()
         handleProducts()
+    }
+
+    private fun initMenuProvider() {
+        val menuHost: MenuHost = requireActivity()
+
+        menuHost.addMenuProvider(
+            object : MenuProvider {
+                override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                    menuInflater.inflate(R.menu.menu, menu)
+                }
+
+                override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                    when (menuItem.itemId) {
+                        R.id.sort -> {
+                            SortDialogFragment().show(this@HomeFragment.childFragmentManager, null)
+                        }
+                    }
+                    return true
+                }
+            },
+            viewLifecycleOwner,
+            Lifecycle.State.RESUMED
+        )
     }
 
     private fun handleCategories() {
@@ -53,9 +80,10 @@ class HomeFragment : Fragment() {
 
     private fun initCategoryAdapter() {
         categoryAdapter = CategoryAdapter { category ->
-            productAdapter.submitList(null)
-            binding.shimmerLayoutProducts.startShimmerLayout()
-            viewModel.getProducts(category.id!!)
+            category.id?.let {
+                CURRENT_CATEGORY = it
+            }
+            viewModel.getProducts()
         }
 
         binding.recyclerViewCategories.apply {
@@ -72,7 +100,7 @@ class HomeFragment : Fragment() {
                 Toast.makeText(context, productsUiState.errorMessage, Toast.LENGTH_LONG).show()
                 binding.shimmerLayoutProducts.stopShimmerLayout()
             } else if (productsUiState.products.isNotEmpty()) {
-                productAdapter.submitList(productsUiState.products)
+                productAdapter.differ.submitList(productsUiState.products)
                 binding.shimmerLayoutProducts.stopShimmerLayout()
             }
         }

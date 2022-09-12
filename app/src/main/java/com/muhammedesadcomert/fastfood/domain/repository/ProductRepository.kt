@@ -5,7 +5,7 @@ import com.muhammedesadcomert.fastfood.util.Resource
 
 interface ProductRepository {
 
-    suspend fun getProducts(categoryId: String, sort: String): Resource<List<Product>, String>
+    suspend fun getProducts(categoryId: String, sortingType: String): Resource<List<Product>, String>
 
     suspend fun getSingleProductDetail(productId: String): Resource<Product, String>
 }

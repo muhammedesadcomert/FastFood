@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#ffcdd2</color>
-    <color name="primaryVariant">#cb9ca1</color>
+    <color name="primary">#ff8760</color>
     <color name="onPrimary">@color/black</color>
-    <color name="primaryContainer">#ffcdd2</color>
+    <color name="primaryContainer">#ff8760</color>
     <color name="onPrimaryContainer">@color/black</color>
     <color name="black">#000000</color>
     <color name="gray">#7D7D7D</color>
