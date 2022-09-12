@@ -22,7 +22,7 @@ An Android application where you can view and examine the details of fast food d
   - [Retrofit](https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java.
   - [OkHttp](https://square.github.io/okhttp/) - An HTTP client that efficiently make network requests.
 - Image Loading
-  - [Glide](https://bumptech.github.io/glide/) - An image loading and caching library for Android focused on smooth scrolling
+  - [Glide](https://bumptech.github.io/glide/) - An image loading and caching library for Android focused on smooth scrolling.
 - Design
   - [Material Design 3](https://m3.material.io/) - Material Design is an adaptable system of guidelines, components, and tools that support the best practices of user interface design. Backed by open-source code, Material Design streamlines collaboration between designers and developers and helps teams quickly build beautiful products.
   - [Shimmer for Android](https://facebook.github.io/shimmer-android/) - An Android library that provides an easy way to add a shimmer effect to any view in an Android app
