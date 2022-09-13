@@ -6,7 +6,7 @@ An Android application where you can view and examine the details of fast food d
 
 <img align="right" width="30%" src="demo/Demo.gif">
 
-- [Kotlin](https://kotlinlang.org/) - Google officially supports Kotlin on Android as a “first-class” language and it has a [a lot of benefits](https://developer.android.com/kotlin).
+- [Kotlin](https://kotlinlang.org/) - Google officially supports Kotlin on Android as a “first-class” language and it has a [a lot of benefits](https://developer.android.com/kotlin) - A coroutine is a concurrency design pattern that can use on Android to simplify code that executes asynchronously.
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
 - [MVVM Architecture](https://developer.android.com/topic/architecture#recommended-app-arch) - Modern, maintainable, and Google-suggested app architecture.
 - Android Architecture Components - Collection of libraries that help you design robust, testable, and maintainable apps.
