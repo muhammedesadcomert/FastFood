@@ -8,18 +8,18 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface ApiService {
+interface ShopirollerApi {
     @GET("categories")
     suspend fun getCategories(): Response<CategoryDto>
 
     @GET("products/advanced-filtered")
     suspend fun getProducts(
         @Query("categoryId") categoryId: String,
-        @Query("sort") sortingType: String
+        @Query("sort") sortingType: String,
     ): Response<ProductListDto>
 
     @GET("products/{productId}")
     suspend fun getSingleProductDetail(
-        @Path("productId") productId: String
+        @Path("productId") productId: String,
     ): Response<ProductDto>
 }

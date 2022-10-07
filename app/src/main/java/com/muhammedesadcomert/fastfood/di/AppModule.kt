@@ -3,8 +3,8 @@ package com.muhammedesadcomert.fastfood.di
 import com.muhammedesadcomert.fastfood.data.mapper.CategoryDtoMapper
 import com.muhammedesadcomert.fastfood.data.mapper.ProductDtoMapper
 import com.muhammedesadcomert.fastfood.data.mapper.ProductListDtoMapper
-import com.muhammedesadcomert.fastfood.data.remote.ApiService
 import com.muhammedesadcomert.fastfood.data.remote.AuthInterceptor
+import com.muhammedesadcomert.fastfood.data.remote.ShopirollerApi
 import com.muhammedesadcomert.fastfood.data.repository.CategoryRepositoryImpl
 import com.muhammedesadcomert.fastfood.data.repository.ProductRepositoryImpl
 import com.muhammedesadcomert.fastfood.domain.repository.CategoryRepository
@@ -42,7 +42,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+    fun provideApiService(retrofit: Retrofit): ShopirollerApi =
+        retrofit.create(ShopirollerApi::class.java)
 
     @Provides
     fun provideAuthInterceptor() = AuthInterceptor()
@@ -50,12 +51,12 @@ object AppModule {
     @Singleton
     @Provides
     fun provideProductRepository(
-        apiService: ApiService,
+        shopirollerApi: ShopirollerApi,
         productListDtoMapper: ProductListDtoMapper,
-        productDtoMapper: ProductDtoMapper
+        productDtoMapper: ProductDtoMapper,
     ): ProductRepository {
         return ProductRepositoryImpl(
-            apiService = apiService,
+            shopirollerApi = shopirollerApi,
             productListDtoMapper = productListDtoMapper,
             productDtoMapper = productDtoMapper
         )
@@ -64,11 +65,11 @@ object AppModule {
     @Singleton
     @Provides
     fun provideCategoryRepository(
-        apiService: ApiService,
-        categoryDtoMapper: CategoryDtoMapper
+        shopirollerApi: ShopirollerApi,
+        categoryDtoMapper: CategoryDtoMapper,
     ): CategoryRepository {
         return CategoryRepositoryImpl(
-            apiService = apiService,
+            shopirollerApi = shopirollerApi,
             categoryDtoMapper = categoryDtoMapper
         )
     }
